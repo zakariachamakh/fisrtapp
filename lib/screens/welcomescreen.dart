@@ -1,7 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mynewsapp/PageModel.dart';
+import 'package:mynewsapp/pagemodel.dart';
 import 'package:page_view_indicator/page_view_indicator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'homepage.dart';
 
 class WelcomeScreen extends StatefulWidget {
   @override
@@ -138,8 +140,23 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           style: TextStyle(
               fontWeight: FontWeight.w700, color: Colors.white, fontSize: 18),
         ),
-        onPressed: () {},
+        onPressed: () {
+          _updateseen();
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return HomePage();
+              },
+            ),
+          );
+        },
       ),
     );
+  }
+
+  void _updateseen() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('seen', true);
   }
 }
