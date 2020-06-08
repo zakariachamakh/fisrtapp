@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mynewsapp/PageModel.dart';
+import 'package:page_view_indicator/page_view_indicator.dart';
 
 class WelcomeScreen extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class WelcomeScreen extends StatefulWidget {
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
   List<PageModle> _pages;
+  ValueNotifier<int> _pageIndexNotifier = ValueNotifier<int>(0);
 
   void _addPages() {
     _pages.add(
@@ -86,14 +88,57 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   );
                 },
                 itemCount: _pages.length,
+                onPageChanged: (index) {
+                  _pageIndexNotifier.value = index;
+                },
               ),
             ],
           ),
           Transform.translate(
             offset: Offset(0, 135),
-            child: Center(),
+            child: Center(
+              child: _pageindicator(_pages.length),
+            ),
           ),
+          _button(),
         ],
+      ),
+    );
+  }
+
+  Widget _pageindicator(length) {
+    return PageViewIndicator(
+      pageIndexNotifier: _pageIndexNotifier,
+      length: length,
+      normalBuilder: (animationController, index) => Circle(
+        size: 10.0,
+        color: Colors.blue,
+      ),
+      highlightedBuilder: (animationController, index) => ScaleTransition(
+        scale: CurvedAnimation(
+          parent: animationController,
+          curve: Curves.bounceIn,
+        ),
+        child: Circle(
+          size: 16.0,
+          color: Colors.red,
+        ),
+      ),
+    );
+  }
+
+  Widget _button() {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: RaisedButton(
+        padding: EdgeInsets.only(left: 96, right: 96, bottom: 8, top: 8),
+        color: Colors.red,
+        child: Text(
+          'GET SATTERD',
+          style: TextStyle(
+              fontWeight: FontWeight.w700, color: Colors.white, fontSize: 18),
+        ),
+        onPressed: () {},
       ),
     );
   }
