@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mynewsapp/screens/home_tabs/favourite.dart';
 import 'package:mynewsapp/screens/home_tabs/populer.dart';
-import 'package:mynewsapp/screens/home_tabs/wath_news.dart';
 import 'package:mynewsapp/shared_ui/drawer.dart';
 
-class HomePage extends StatefulWidget {
+class Heding_news extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _Heding_newsState createState() => _Heding_newsState();
 }
 
-class _HomePageState extends State<HomePage>
+class _Heding_newsState extends State<Heding_news>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
 
@@ -23,7 +22,7 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Explore"),
+        title: Text("Heding news"),
         centerTitle: false,
         actions: <Widget>[
           IconButton(
@@ -47,7 +46,7 @@ class _HomePageState extends State<HomePage>
       body: TabBarView(
         controller: _tabController,
         children: [
-          Wath_news(),
+          Favourite(),
           Populer(),
           Favourite(),
         ],

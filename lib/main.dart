@@ -4,7 +4,7 @@ import 'package:mynewsapp/screens/welcomescreen.dart';
 import 'package:mynewsapp/utiilitise/app_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   bool seen = prefs.getBool('seen');
