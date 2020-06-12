@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mynewsapp/pagemodel.dart';
+import 'file:///D:/JetBrains/AndroidStudioProjects/my_news_app/lib/model_Welcomescreen/pagemodel.dart';
 import 'package:page_view_indicator/page_view_indicator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

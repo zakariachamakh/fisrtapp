@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mynewsapp/screens/headingnews.dart';
+import 'package:mynewsapp/screens/Drawr_Pages/facebookfeeds.dart';
+import 'package:mynewsapp/screens/Drawr_Pages/headingnews.dart';
+import 'package:mynewsapp/screens/Drawr_Pages/instagramfeeds.dart';
+import 'package:mynewsapp/screens/Drawr_Pages/twitterfeeds.dart';
 import 'package:mynewsapp/screens/homepage.dart';
 import 'package:mynewsapp/shared_ui/destation.dart';
 
@@ -14,6 +17,9 @@ class _DrawerAppState extends State<DrawerApp> {
     List<NavDes> _destantion = [
       NavDes("Expoler", () => HomePage()),
       NavDes("heding news", () => Heding_news()),
+      NavDes("Twitter feeds", () => Twitter_feeds()),
+      NavDes("Instgram feeds", () => Instgram_Feeds()),
+      NavDes("Facebbok feeds", () => Facebook_feeds()),
     ];
 
     return Drawer(
@@ -31,11 +37,14 @@ class _DrawerAppState extends State<DrawerApp> {
               ),
               trailing: Icon(Icons.keyboard_arrow_right),
               onTap: () {
+                Navigator.pop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) {
-                    return _destantion[index].destation();
-                  }),
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return _destantion[index].destation();
+                    },
+                  ),
                 );
               },
             );
