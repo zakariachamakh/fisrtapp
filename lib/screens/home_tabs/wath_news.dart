@@ -23,32 +23,20 @@ class _Wath_newsState extends State<Wath_news> {
             child: Card(
               child: Column(
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 12.0, left: 12.0, right: 12.0, bottom: 4),
-                    child: _SingleRowArticleTopStories(
-                        'The World Global Warmin Annual Summit ',
-                        'Michael Adams',
-                        '15 min'),
-                  ),
+                  _SingleRowArticleTopStories(
+                      'The World Global Warmin Annual Summit ',
+                      'Michael Adams',
+                      '15 min'),
                   _drawDiveder(),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 12.0, left: 12.0, right: 12.0, bottom: 4),
-                    child: _SingleRowArticleTopStories(
-                        'The World Global Warmin Annual Summit ',
-                        'Michael Adams',
-                        '15 min'),
-                  ),
+                  _SingleRowArticleTopStories(
+                      'The World Global Warmin Annual Summit ',
+                      'Michael Adams',
+                      '15 min'),
                   _drawDiveder(),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 12.0, left: 12.0, right: 12.0, bottom: 4),
-                    child: _SingleRowArticleTopStories(
-                        'Spotlight on Medtech Outsourcing and Innovation ',
-                        'Michael Adams',
-                        '15 min'),
-                  ),
+                  _SingleRowArticleTopStories(
+                      'Spotlight on Medtech Outsourcing and Innovation ',
+                      'Michael Adams',
+                      '15 min'),
                 ],
               ),
             ),
@@ -57,8 +45,10 @@ class _Wath_newsState extends State<Wath_news> {
             padding: const EdgeInsets.only(left: 18, top: 24, bottom: 24),
             child: _drawTitleOfSection('Recent Updates'),
           ),
-          _cardNews('Vettel is Ferrari Number One - Hamilton','sport','15min',Colors.orangeAccent),
-          _cardNews('Vettel is Ferrari Number One - Hamilton','LIFESTYLE','15min',Colors.greenAccent),
+          _cardNews('Vettel is Ferrari Number One - Hamilton', 'sport', '15min',
+              Colors.orangeAccent),
+          _cardNews('Vettel is Ferrari Number One - Hamilton', 'LIFESTYLE',
+              '15min', Colors.greenAccent),
           SizedBox(
             height: 48,
           ),
@@ -121,46 +111,50 @@ class _Wath_newsState extends State<Wath_news> {
   }
 
   Widget _SingleRowArticleTopStories(String _Title, _auther, _time) {
-    return Row(
-      children: <Widget>[
-        Image(
-          width: MediaQuery.of(context).size.width * 0.35,
-          height: MediaQuery.of(context).size.height * 0.15,
-          image: ExactAssetImage('assets/images/bg.png'),
-          fit: BoxFit.cover,
-        ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  _Title,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-                  maxLines: 2,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(_auther),
-                    SizedBox(
-                      height: 52,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Icon(Icons.access_time),
-                        Text(_time),
-                      ],
-                    ),
-                  ],
-                )
-              ],
+    return Padding(
+      padding:
+          const EdgeInsets.only(top: 12.0, left: 12.0, right: 12.0, bottom: 4),
+      child: Row(
+        children: <Widget>[
+          Image(
+            width: MediaQuery.of(context).size.width * 0.35,
+            height: MediaQuery.of(context).size.height * 0.15,
+            image: ExactAssetImage('assets/images/bg.png'),
+            fit: BoxFit.cover,
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    _Title,
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                    maxLines: 2,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(_auther),
+                      SizedBox(
+                        height: 52,
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Icon(Icons.access_time),
+                          Text(_time),
+                        ],
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -174,7 +168,7 @@ class _Wath_newsState extends State<Wath_news> {
 
   Widget _cardNews(String _title, _tag, _time, Color _color) {
     return Padding(
-      padding: const EdgeInsets.only(left: 8,right: 8),
+      padding: const EdgeInsets.only(left: 8, right: 8),
       child: Card(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -210,7 +204,7 @@ class _Wath_newsState extends State<Wath_news> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(left: 22, top: 8,bottom: 12),
+              padding: EdgeInsets.only(left: 22, top: 8, bottom: 12),
               child: Row(
                 children: <Widget>[
                   Icon(Icons.access_time),
